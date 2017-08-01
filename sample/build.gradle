@@ -4,7 +4,7 @@ android {
   signingConfigs {
   }
   compileSdkVersion 23
-  buildToolsVersion "23.0.2"
+  buildToolsVersion '25.0.0'
   defaultConfig {
     applicationId "com.michaldrabik.tapbarmenu"
     minSdkVersion 16
