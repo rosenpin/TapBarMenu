@@ -109,14 +109,6 @@ All available XML parameters are listed below:
 
 I've been inspired by [Aaron Benjamin's](https://dribbble.com/shots/2345329-Tab-Bar-Animation) great design.
 
-## Versions
-
-1.0.5 - Added Regular Drawable support
-<br>1.0.4 - Memory optimizations, onClick listener fixes
-<br>1.0.2 - You can now add custom icon via XML or code. See attributes.
-<br>1.0.1 - Pre 21 SDK bugfixes
-<br>1.0.0 - Initial release
-
 ## License
 
     Copyright (C) 2015 Michal Drabik
