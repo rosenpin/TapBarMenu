@@ -15,6 +15,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
@@ -26,6 +27,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.LinearLayout;
+
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 /**
  * TapBar Menu Layout.
@@ -211,6 +214,9 @@ public class TapBarMenu extends LinearLayout {
 	 * Open the menu.
 	 */
 	public void open() {
+		setSize(MATCH_PARENT, buttonSize);
+		setMenuBackgroundColor(R.color.tbm_red);
+		setBackgroundColor(getResources().getColor(R.color.tbm_red));
 		state = State.OPENED;
 		showIcons(true);
 		
@@ -239,6 +245,7 @@ public class TapBarMenu extends LinearLayout {
 	 * Close the menu.
 	 */
 	public void close() {
+		setBackgroundColor(getResources().getColor(android.R.color.transparent));
 		updateDimensions(width, height);
 		state = State.CLOSED;
 		showIcons(false);
@@ -250,6 +257,12 @@ public class TapBarMenu extends LinearLayout {
 		animator[BOTTOM].setFloatValues(height, button[BOTTOM]);
 		
 		animatorSet.cancel();
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				setSize(buttonSize, buttonSize);
+			}
+		}, animationDuration);
 		animatorSet.start();
 		if (iconClosedDrawable instanceof Animatable) {
 			((Animatable) iconClosedDrawable).start();
@@ -261,6 +274,13 @@ public class TapBarMenu extends LinearLayout {
 					.setInterpolator(DECELERATE_INTERPOLATOR)
 					.start();
 		}
+	}
+	
+	private void setSize(int w, int h) {
+		ViewGroup.LayoutParams lp = getLayoutParams();
+		lp.width = w;
+		lp.height = h;
+		setLayoutParams(lp);
 	}
 	
 	/**
