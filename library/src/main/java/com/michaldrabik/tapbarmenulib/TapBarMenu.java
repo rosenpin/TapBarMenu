@@ -584,7 +584,6 @@ public class TapBarMenu extends LinearLayout {
 	
 	private void onDestroy() {
 		//Java has a garbage collector, no need to clean all the views manually.
-		onClickListener = null;
 	}
 	
 	private enum State {
