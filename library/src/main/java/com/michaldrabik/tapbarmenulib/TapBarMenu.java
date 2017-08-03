@@ -129,7 +129,8 @@ public class TapBarMenu extends LinearLayout {
 				.getDimensionPixelSize(R.styleable.tbm_TapBarMenu_tbm_buttonMarginLeft, 0);
 		buttonPosition = typedArray
 				.getInt(R.styleable.tbm_TapBarMenu_tbm_buttonPosition, BUTTON_POSITION_CENTER);
-		menuAnchor = typedArray.getInt(R.styleable.tbm_TapBarMenu_tbm_menuAnchor, MENU_ANCHOR_BOTTOM);
+		menuAnchor = typedArray
+				.getInt(R.styleable.tbm_TapBarMenu_tbm_menuAnchor, MENU_ANCHOR_BOTTOM);
 		showMenuItems = typedArray.getBoolean(R.styleable.tbm_TapBarMenu_tbm_showItems, false);
 		typedArray.recycle();
 	}
@@ -582,13 +583,7 @@ public class TapBarMenu extends LinearLayout {
 	}
 	
 	private void onDestroy() {
-		iconOpenedDrawable = null;
-		iconClosedDrawable = null;
-		for (int i = 0; i < 5; i++) {
-			animator[i] = null;
-		}
-		animator = null;
-		button = null;
+		//Java has a garbage collector, no need to clean all the views manually.
 		onClickListener = null;
 	}
 	
