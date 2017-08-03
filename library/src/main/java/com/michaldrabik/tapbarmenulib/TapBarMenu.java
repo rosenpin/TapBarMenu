@@ -363,6 +363,10 @@ public class TapBarMenu extends LinearLayout {
 	
 	@Override
 	protected void onDraw(Canvas canvas) {
+		if (button == null) {
+			invalidate();
+			return;
+		}
 		canvas.drawPath(
 				createRoundedRectPath(button[LEFT], button[TOP], button[RIGHT], button[BOTTOM],
 						button[RADIUS], button[RADIUS], false), paint);

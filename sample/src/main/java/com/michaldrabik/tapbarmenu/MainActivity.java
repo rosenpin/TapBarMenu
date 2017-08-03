@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		ButterKnife.bind(this);
+		tapBarMenu.setElevation(32);
 	}
 	
 	@OnClick(R.id.tapBarMenu)
