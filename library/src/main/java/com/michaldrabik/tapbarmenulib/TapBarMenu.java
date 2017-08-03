@@ -46,6 +46,7 @@ public class TapBarMenu extends LinearLayout {
 	private static final int TOP = 2;
 	private static final int BOTTOM = 3;
 	private static final int RADIUS = 4;
+	public boolean moveDownOnClose = true;
 	private AnimatorSet animatorSet = new AnimatorSet();
 	private ValueAnimator[] animator = new ValueAnimator[5];
 	private float[] button = new float[5];
@@ -251,11 +252,13 @@ public class TapBarMenu extends LinearLayout {
 		if (iconClosedDrawable instanceof Animatable) {
 			((Animatable) iconClosedDrawable).start();
 		}
-		this.animate()
-				.y(yPosition)
-				.setDuration(animationDuration)
-				.setInterpolator(DECELERATE_INTERPOLATOR)
-				.start();
+		if (moveDownOnClose) {
+			this.animate()
+					.y(yPosition)
+					.setDuration(animationDuration)
+					.setInterpolator(DECELERATE_INTERPOLATOR)
+					.start();
+		}
 	}
 	
 	/**

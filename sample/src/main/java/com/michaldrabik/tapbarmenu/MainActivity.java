@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		ButterKnife.bind(this);
+		tapBarMenu.moveDownOnClose = false;
 		tapBarMenu.setElevation(32);
 		tapBarMenu.setIconColor(Color.WHITE);
 	}
