@@ -5,8 +5,11 @@
 
 TapBar Menu
 ===========
-
 Simple library that helps creating a "Tap Bar" menu layout.
+A fork of michaldrabik/TapBarMenu. This version of the library features:
+- Force close bug fix
+- No reliability on other libraries (removed deprecated libraries)
+- Slightly tweaked behaviour
 
 ![alt text](http://i.giphy.com/ZRCzrySXUaMwM.gif "Demo 1")
 ![alt text](http://i.giphy.com/zIBFfp4iLlGAo.gif "Demo 2")
@@ -16,11 +19,20 @@ Demo 1: https://youtu.be/DjY0cTWWtao
 Demo 2: https://youtu.be/dWuPMN6WTOY
 
 ## Install
-Add the dependency to your `build.gradle`:
-
+Add jitpack to your project `build.gradle`:
+```groovy
+allprojects {
+    repositories {
+      ...
+	  maven { url 'https://jitpack.io' }
+    }
+}
+```
+    
+Add the dependency to your module `build.gradle`:
 ```groovy
 dependencies {
-    compile 'com.github.michaldrabik:tapbarmenu:1.0.5'
+    compile 'com.github.rosenpin:TapBarMenu:1.1'
 }
 ```
 
@@ -96,14 +108,6 @@ All available XML parameters are listed below:
 ## Kudos
 
 I've been inspired by [Aaron Benjamin's](https://dribbble.com/shots/2345329-Tab-Bar-Animation) great design.
-
-## Versions
-
-1.0.5 - Added Regular Drawable support
-<br>1.0.4 - Memory optimizations, onClick listener fixes
-<br>1.0.2 - You can now add custom icon via XML or code. See attributes.
-<br>1.0.1 - Pre 21 SDK bugfixes
-<br>1.0.0 - Initial release
 
 ## License
 
