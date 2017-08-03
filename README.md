@@ -1,7 +1,7 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-TapBarMenu-lightgrey.svg?style=flat)](https://android-arsenal.com/details/1/2886)
 [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
-
+[![](https://jitpack.io/v/rosenpin/TapBarMenu.svg)](https://jitpack.io/#rosenpin/TapBarMenu)
 
 TapBar Menu
 ===========
@@ -32,7 +32,7 @@ allprojects {
 Add the dependency to your module `build.gradle`:
 ```groovy
 dependencies {
-    compile 'com.github.rosenpin:TapBarMenu:1.1'
+    compile 'com.github.rosenpin:TapBarMenu:1.2'
 }
 ```
 
