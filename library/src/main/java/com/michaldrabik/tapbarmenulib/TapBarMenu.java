@@ -226,11 +226,13 @@ public class TapBarMenu extends LinearLayout {
 			((Animatable) iconOpenedDrawable).start();
 		}
 		ViewGroup parentView = (ViewGroup) TapBarMenu.this.getParent();
-		this.animate()
-				.y(menuAnchor == MENU_ANCHOR_BOTTOM ? parentView.getBottom() - height : 0)
-				.setDuration(animationDuration)
-				.setInterpolator(DECELERATE_INTERPOLATOR)
-				.start();
+		if (moveDownOnClose) {
+			this.animate()
+					.y(menuAnchor == MENU_ANCHOR_BOTTOM ? parentView.getBottom() - height : 0)
+					.setDuration(animationDuration)
+					.setInterpolator(DECELERATE_INTERPOLATOR)
+					.start();
+		}
 	}
 	
 	/**
