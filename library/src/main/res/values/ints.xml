@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <integer name="animationDuration">250</integer>
+  <integer name="tbm_animationDuration">250</integer>
 </resources>

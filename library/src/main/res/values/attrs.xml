@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <declare-styleable name="TapBarMenu">
+  <declare-styleable name="tbm_TapBarMenu">
     <attr name="tbm_backgroundColor" format="color" />
     <attr name="tbm_buttonSize" format="dimension" />
     <attr name="tbm_buttonMarginRight" format="dimension" />
