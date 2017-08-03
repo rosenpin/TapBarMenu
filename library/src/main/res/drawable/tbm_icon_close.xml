@@ -11,7 +11,7 @@
         android:pivotY="250">
         <path
             android:name="stripe1"
-            android:fillColor="@android:color/white"
+            android:fillColor="#ffffffff"
             android:pathData="M100,0
         L500,400
         A50,50,0,0,0,501,399
@@ -24,7 +24,7 @@
 
         <path
             android:name="stripe2"
-            android:fillColor="@android:color/white"
+            android:fillColor="#ffffffff"
             android:pathData="M100,0
         L500,400
         A50,50,0,0,0,501,399
@@ -37,7 +37,7 @@
 
         <path
             android:name="stripe3"
-            android:fillColor="@android:color/white"
+            android:fillColor="#ffffffff"
             android:pathData="M400,0
         L500,100
         A50,50,0,0,0,501,99
@@ -48,5 +48,4 @@
         A50,50,0,0,0,0,399
         z" />
     </group>
-
 </vector>

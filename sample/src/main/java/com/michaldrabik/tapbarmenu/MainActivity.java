@@ -1,5 +1,6 @@
 package com.michaldrabik.tapbarmenu;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 		ButterKnife.bind(this);
 		tapBarMenu.setElevation(32);
+		tapBarMenu.setIconColor(Color.WHITE);
 	}
 	
 	@OnClick(R.id.tapBarMenu)

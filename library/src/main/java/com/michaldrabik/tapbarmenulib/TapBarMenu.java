@@ -8,14 +8,17 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.res.ResourcesCompat;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -84,6 +87,7 @@ public class TapBarMenu extends LinearLayout {
 		setupAnimators();
 		setupPaint();
 		showIcons(false);
+		setIconColor(Color.WHITE);
 	}
 	
 	private void setupAttributes(AttributeSet attrs) {
@@ -93,16 +97,25 @@ public class TapBarMenu extends LinearLayout {
 		if (typedArray.hasValue(R.styleable.TapBarMenu_tbm_iconOpened)) {
 			iconOpenedDrawable = typedArray.getDrawable(R.styleable.TapBarMenu_tbm_iconOpened);
 		} else {
-			iconOpenedDrawable = ResourcesCompat
-					.getDrawable(getContext().getResources(), R.drawable.tbm_icon_animated, null);
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+				iconOpenedDrawable = ContextCompat
+						.getDrawable(getContext(), R.drawable.tbm_icon_animated);
+			} else {
+				iconOpenedDrawable = VectorDrawableCompat
+						.create(getResources(), R.drawable.ic_close, null);
+			}
 		}
 		
 		if (typedArray.hasValue(R.styleable.TapBarMenu_tbm_iconClosed)) {
 			iconClosedDrawable = typedArray.getDrawable(R.styleable.TapBarMenu_tbm_iconClosed);
 		} else {
-			iconClosedDrawable = ResourcesCompat
-					.getDrawable(getContext().getResources(), R.drawable.tbm_icon_close_animated,
-							null);
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+				iconClosedDrawable = ContextCompat
+						.getDrawable(getContext(), R.drawable.tbm_icon_close_animated);
+			} else {
+				iconClosedDrawable = VectorDrawableCompat
+						.create(getResources(), R.drawable.ic_menu, null);
+			}
 		}
 		
 		backgroundColor = typedArray.getColor(R.styleable.TapBarMenu_tbm_backgroundColor,
@@ -242,6 +255,29 @@ public class TapBarMenu extends LinearLayout {
 				.setDuration(animationDuration)
 				.setInterpolator(DECELERATE_INTERPOLATOR)
 				.start();
+	}
+	
+	/**
+	 * Set the icon color of the menu/close button
+	 *
+	 * @param color the color to set tint to
+	 */
+	public void setIconColor(int color) {
+		if (iconOpenedDrawable != null) {
+			iconOpenedDrawable.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
+		}
+		if (iconClosedDrawable != null) {
+			iconClosedDrawable.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
+		}
+	}
+	
+	@Override
+	public void setElevation(float elevation) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			super.setElevation(elevation);
+		} else {
+			ViewCompat.setElevation(this, elevation);
+		}
 	}
 	
 	/**
