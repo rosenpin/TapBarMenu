@@ -92,6 +92,7 @@ public class TapBarMenu extends LinearLayout {
 		setupPaint();
 		showIcons(false);
 		setIconColor(Color.WHITE);
+		setSize(buttonSize, buttonSize);
 	}
 	
 	private void setupAttributes(AttributeSet attrs) {
