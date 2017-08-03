@@ -73,6 +73,7 @@ public class TapBarMenu extends LinearLayout {
 	private int buttonMarginLeft;
 	private int menuAnchor;
 	private boolean showMenuItems;
+	private Handler animationHandler = new Handler();
 	
 	public TapBarMenu(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -220,6 +221,7 @@ public class TapBarMenu extends LinearLayout {
 	 * Open the menu.
 	 */
 	public void open() {
+		animationHandler.removeCallbacksAndMessages(null);
 		setSize(MATCH_PARENT, buttonSize);
 		setMenuBackgroundColor(R.color.tbm_red);
 		setBackgroundColor(getResources().getColor(R.color.tbm_red));
@@ -263,7 +265,7 @@ public class TapBarMenu extends LinearLayout {
 		animator[BOTTOM].setFloatValues(height, button[BOTTOM]);
 		
 		animatorSet.cancel();
-		new Handler().postDelayed(new Runnable() {
+		animationHandler.postDelayed(new Runnable() {
 			@Override
 			public void run() {
 				setSize(buttonSize, buttonSize);
